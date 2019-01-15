@@ -28,7 +28,7 @@ TagList=(
 )
 
 echo 'images-count:'${#ImageList[*]}
-for i in $(seq 0 ${#ImageList[*]})
+for ((i=0;i<${#ImageList[*]};i++));
 do
 	docker pull ${ImageList[i]}
 	docker tag ${ImageList[i]} ${TagList[i]}
