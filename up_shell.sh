@@ -5,6 +5,8 @@ COREDNS_VER="1.2.6"
 ETCD_VER="3.2.24"
 PAUSE_VER="3.1"
 DOCKER_FILE="Dockerfile"
+GCRIO="gcr.io/google_containers"
+
 
 CDIR=$(cd "$(dirname "$0")";pwd)
 echo ${CDIR}
@@ -12,21 +14,19 @@ echo ${CDIR}
 for file in $(ls -F |grep '/$'); do
 	fullpath=${CDIR}'/'${file}
 	dname=${file%?}
+	imgvar="latest"
 	if [ ${dname:0:5} = 'kube-' ]; then
-		cd $fullpath
-		echo "FROM gcr.io/google_containers/${dname}:${K8S_VER}" >${DOCKER_FILE}
-		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
+		imgvar=${K8S_VER}
 	elif  [ ${dname} = 'etcd-amd64' ]; then
-		cd $fullpath
-		echo "FROM gcr.io/google_containers/${dname}:${ETCD_VER}" >${DOCKER_FILE}
-		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
+		imgvar=${ETCD_VER}
 	elif  [ ${dname} = 'pause-amd64' ]; then
-		cd $fullpath
-		echo "FROM gcr.io/google_containers/${dname}:${PAUSE_VER}" >${DOCKER_FILE}
-		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
+		imgvar=${PAUSE_VER}
 	elif  [ ${dname} = 'coredns' ]; then
-		cd $fullpath
-		echo "FROM gcr.io/google_containers/${dname}:${COREDNS_VER}" >${DOCKER_FILE}
-		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
+		imgvar=${COREDNS_VER}
+	else
+		continue
 	fi
+	cd $fullpath
+	echo "FROM ${GCRIO}/${dname}:${imgvar}" >${DOCKER_FILE}
+	echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
 done
