@@ -16,15 +16,15 @@ for file in $(ls -F |grep '/$'); do
 		cd $fullpath
 		echo "FROM gcr.io/google_containers/${dname}:${K8S_VER}" >${DOCKER_FILE}
 		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
-	else if [ ${dname} = 'etcd-amd64' ];
+	elif  [ ${dname} = 'etcd-amd64' ]; then
 		cd $fullpath
 		echo "FROM gcr.io/google_containers/${dname}:${ETCD_VER}" >${DOCKER_FILE}
 		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
-	else if [ ${dname} = 'pause-amd64' ];
+	elif  [ ${dname} = 'pause-amd64' ]; then
 		cd $fullpath
 		echo "FROM gcr.io/google_containers/${dname}:${PAUSE_VER}" >${DOCKER_FILE}
 		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
-	else if [ ${dname} = 'coredns' ];
+	elif  [ ${dname} = 'coredns' ]; then
 		cd $fullpath
 		echo "FROM gcr.io/google_containers/${dname}:${COREDNS_VER}" >${DOCKER_FILE}
 		echo "MAINTAINER 569964924@qq.com" >>${DOCKER_FILE}
