@@ -11,7 +11,7 @@ GCRIO="gcr.io"
 NS_GOOGLE_CTER="google_containers"
 NS_HELM="kubernetes-helm"
 
-CDIR=$(cd "$(dirname "$0")";pwd)
+CDIR=$(pwd)
 echo ${CDIR}
 #遍历所有目录
 for file in $(ls -F |grep '/$'); do
