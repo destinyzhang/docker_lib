@@ -28,7 +28,7 @@ TagList=(
 	"${K8sRegPach}/kube-controller-manager:${K8S_VER}"
 	"${K8sRegPach}/kube-proxy:${K8S_VER}"
 	"${K8sRegPach}/kube-scheduler:${K8S_VER}"
-	"gcr.io/kubernetes-helm/tiller:${K8S_VER}"
+	"gcr.io/kubernetes-helm/tiller:${HELM_VER}"
 )
 
 echo 'images-count:'${#ImageList[*]}

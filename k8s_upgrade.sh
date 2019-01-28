@@ -6,8 +6,6 @@ ETCD_VER="3.2.24"
 PAUSE_VER="3.1"
 HELM_VER="v2.12.3"
 
-DOCKER_FILE="Dockerfile"
-
 #镜像名称
 IMAGE_DIRS=(
 	"coredns"
