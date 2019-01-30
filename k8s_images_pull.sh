@@ -5,6 +5,7 @@ COREDNS_VER="1.2.6"
 ETCD_VER="3.2.24"
 PAUSE_VER="3.1"
 HELM_VER="v2.12.3"
+DASHBOARD_VER="v1.10.1"
 
 AliRegPach="registry.cn-shenzhen.aliyuncs.com/zzfdyl"
 K8sRegPach="k8s.gcr.io"
@@ -18,6 +19,7 @@ ImageList=(
 	"${AliRegPach}/kube-proxy${Arch}:${K8S_VER}"
 	"${AliRegPach}/kube-scheduler${Arch}:${K8S_VER}"
 	"${AliRegPach}/tiller:${HELM_VER}"
+	"${AliRegPach}/kubernetes-dashboard${Arch}:${DASHBOARD_VER}"
 )
 
 TagList=(
@@ -29,6 +31,7 @@ TagList=(
 	"${K8sRegPach}/kube-proxy:${K8S_VER}"
 	"${K8sRegPach}/kube-scheduler:${K8S_VER}"
 	"gcr.io/kubernetes-helm/tiller:${HELM_VER}"
+	"${K8sRegPach}/kubernetes-dashboard${Arch}:${DASHBOARD_VER}"
 )
 
 echo 'images-count:'${#ImageList[*]}
