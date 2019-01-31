@@ -6,6 +6,7 @@ ETCD_VER="3.2.24"
 PAUSE_VER="3.1"
 HELM_VER="v2.12.3"
 DASHBOARD_VER="v1.10.1"
+METRICS_VER="v0.3.1"
 
 #镜像名称
 IMAGE_DIRS=(
@@ -18,6 +19,7 @@ IMAGE_DIRS=(
 	"pause-amd64"
 	"tiller"
 	"kubernetes-dashboard-amd64"
+	"metrics-server-amd64"
 )
 
 #镜像版本
@@ -31,6 +33,7 @@ IMAGE_VER=(
 	${PAUSE_VER}
 	${HELM_VER}
 	${DASHBOARD_VER}
+	${METRICS_VER}
 )
 
 #地址
@@ -43,6 +46,7 @@ IMAGE_URL=(
 	"gcr.io/google_containers"
 	"gcr.io/google_containers"
 	"gcr.io/kubernetes-helm"
+	"k8s.gcr.io"
 	"k8s.gcr.io"
 )
 
